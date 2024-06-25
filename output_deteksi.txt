@@ -1,0 +1,3 @@
+AB1520EN, AB, 25.0 
+AB1529GO, AB1529GB, 87.5 
+Akurasi Total: 45.83

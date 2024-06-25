@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RayPlate</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="static/style.css">
+<style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+</head>
+<body>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+<!-- Header -->
+<header class="w3-panel w3-center w3-opacity" style="padding:128px 16px" >
+  <h1 class="w3-xlarge">RayPlate</h1>
+  
+  
+  <div class="w3-padding-32">
+    <div class="w3-bar w3-border">
+      <a href="/" class="w3-bar-item w3-button">Detect</a>
+      <a href="/detect_folder" class="w3-bar-item w3-button w3-light-grey">Detect Folder</a>
+      <a href="/model" class="w3-bar-item w3-button w3-light-grey">Model YOLO</a>
+      <a href="/data" class="w3-bar-item w3-button w3-light-grey">Dataset</a>
+
+      <!-- <a href="/grafik" class="w3-bar-item w3-button w3-light-grey">Grafik</a> -->
+    </div>
+  </div>
+</header>
+
+<!-- Isi laporan -->
+<div class="konten">
+  <form action="/model" method="post" enctype="multipart/form-data">
+    <h4>Training YOLO</h4>
+    <label for="model">Select a YOLO Model:</label>
+    <select id="model" name="model">
+        <option value="yolov8n">YOLOv8n</option>
+        <option value="yolov8s">YOLOv8s</option>
+        <option value="yolov8m">YOLOv8m</option>
+        <option value="yolov8l">YOLOv8l</option>
+        <option value="yolov8x">YOLOv8x</option>
+        <!-- Add more options for other YOLO models if needed -->
+    </select>
+
+    <br><br>
+
+    <label for="data">Upload Data:</label>
+    <input type="file" id="data" name="data" accept=".yaml" required>
+
+    <br><br>
+
+    <label for="epoch">Number of Epochs:</label>
+    <input type="number" id="epoch" name="epoch" required>
+
+    <br><br>
+
+    <input type="submit" value="Train Model">
+    <br><br>
+
+    <h4> {{result}} </h4>
+  </form>
+ 
+</div>
+<!-- End Page Content -->
+
+
+<!-- Footer -->
+<footer class="footer"> 
+  <p>&copy; 2023</p>
+</footer>
+
+</body>
+</html>

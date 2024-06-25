@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RayPlate</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.rawgit.com/ebidel/idb.filesystem.js/master/dist/idb.filesystem.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="static/style.css">
+<style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+</head>
+<body>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+<!-- Header -->
+<header class="w3-panel w3-center w3-opacity" style="padding:128px 16px" >
+  <h1 class="w3-xlarge">RayPlate</h1>
+  
+  
+  <div class="w3-padding-32">
+    <div class="w3-bar w3-border">
+      <a href="/" class="w3-bar-item w3-button">Detect</a>
+      <a href="/detect_folder" class="w3-bar-item w3-button w3-light-grey">Detect Folder</a>
+      <a href="/model" class="w3-bar-item w3-button w3-light-grey">Model YOLO</a>
+      <a href="/data" class="w3-bar-item w3-button w3-light-grey">Dataset</a>
+
+      <!-- <a href="/grafik" class="w3-bar-item w3-button w3-light-grey">Grafik</a> -->
+    </div>
+  </div>
+</header>
+
+<!-- Isi laporan -->
+<div class="konten">
+  <h4>Dataset</h4>
+  <p>Input Dataset</p>
+  <input type="file" id="fileInput" webkitdirectory multiple accept="image/*" onchange="handleFileSelect(event)">
+  
+  <div class="container">
+      <div class="box">
+          <p>Isi Dataset</p><br><br>
+          <div id="gallery" style="display: flex; flex-wrap: wrap;"></div>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function handleFileSelect(event) {
+      const galleryElement = document.getElementById('gallery');
+      galleryElement.innerHTML = '';
+
+      const files = event.target.files;
+      
+      for (const file of files) {
+          // Check if the file is an image
+          if (file.type.match(/^image\//)) {
+              const figureElement = document.createElement('figure');
+              const imageElement = document.createElement('img');
+              const figcaptionElement = document.createElement('figcaption');
+
+              imageElement.src = URL.createObjectURL(file);
+              imageElement.style.maxWidth = '200px';  // Sesuaikan ukuran gambar di sini
+              imageElement.style.maxHeight = '200px'; // Sesuaikan ukuran gambar di sini
+              figcaptionElement.textContent = file.name;
+
+              figureElement.appendChild(imageElement);
+              figureElement.appendChild(figcaptionElement);
+
+              galleryElement.appendChild(figureElement);
+          }
+      }
+  }
+</script>
+
+
+<!-- End Page Content -->
+
+
+<!-- Footer -->
+<footer class="footer"> 
+  <p>&copy; 2023</p>
+</footer>
+
+</body>
+</html>

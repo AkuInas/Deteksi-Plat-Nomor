@@ -1,0 +1,10 @@
+path : D:/kode/deteksi plat nomor/static/data
+train : images/train
+val : images/valid
+
+names :
+  0: Motor Plat Hitam
+  1: Motor Plat Putih
+  2: Mobil Plat Hitam
+  3: Mobil Plat Putih
+  4: Plat Istimewa
